@@ -1,0 +1,549 @@
+{
+  "airports": [
+    {
+      "iata_code": "LAX",
+      "city": "Los Angeles",
+      "name": "Los Angeles International Airport",
+      "country": "USA",
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "iata_code": "JFK",
+      "city": "New York",
+      "name": "John F. Kennedy International Airport",
+      "country": "USA",
+      "timezone": "America/New_York"
+    },
+    {
+      "iata_code": "LHR",
+      "city": "London",
+      "name": "Heathrow Airport",
+      "country": "UK",
+      "timezone": "Europe/London"
+    },
+    {
+      "iata_code": "CDG",
+      "city": "Paris",
+      "name": "Charles de Gaulle Airport",
+      "country": "France",
+      "timezone": "Europe/Paris"
+    },
+    {
+      "iata_code": "NRT",
+      "city": "Tokyo",
+      "name": "Narita International Airport",
+      "country": "Japan",
+      "timezone": "Asia/Tokyo"
+    },
+    {
+      "iata_code": "SIN",
+      "city": "Singapore",
+      "name": "Singapore Changi Airport",
+      "country": "Singapore",
+      "timezone": "Asia/Singapore"
+    }
+  ],
+
+  "airlines": [
+    {
+      "iata_code": "AA",
+      "name": "American Airlines",
+      "country": "USA"
+    },
+    {
+      "iata_code": "BA",
+      "name": "British Airways",
+      "country": "UK"
+    },
+    {
+      "iata_code": "SQ",
+      "name": "Singapore Airlines",
+      "country": "Singapore"
+    },
+    {
+      "iata_code": "AF",
+      "name": "Air France",
+      "country": "France"
+    }
+  ],
+
+  "fare_families": [
+    {
+      "family_code": "BASIC",
+      "name": "Basic Economy",
+      "baggage_included": 0,
+      "seat_selection": false,
+      "changes_allowed": false,
+      "refundable": false,
+      "cancellation_fee_percent": 100
+    },
+    {
+      "family_code": "MAIN",
+      "name": "Main Cabin",
+      "baggage_included": 1,
+      "seat_selection": true,
+      "changes_allowed": true,
+      "refundable": false,
+      "cancellation_fee_percent": 80
+    },
+    {
+      "family_code": "FLEX",
+      "name": "Flexible",
+      "baggage_included": 2,
+      "seat_selection": true,
+      "changes_allowed": true,
+      "refundable": true,
+      "cancellation_fee_percent": 25
+    }
+  ],
+
+  "cancellation_fee_rules": [
+    {
+      "time_before_departure": "> 72 hours",
+      "fee_percent": 10,
+      "min_fee": 50,
+      "max_fee": 200
+    },
+    {
+      "time_before_departure": "24-72 hours",
+      "fee_percent": 25,
+      "min_fee": 100,
+      "max_fee": 300
+    },
+    {
+      "time_before_departure": "0-24 hours",
+      "fee_percent": 50,
+      "min_fee": 150,
+      "max_fee": 500
+    },
+    {
+      "time_before_departure": "at airport",
+      "fee_percent": 75,
+      "min_fee": 200,
+      "max_fee": 750
+    }
+  ],
+
+  "mock_flights": [
+    {
+      "flight_id": "AA1234_20250930",
+      "flight_number": "AA1234",
+      "airline_code": "AA",
+      "origin_iata": "LAX",
+      "destination_iata": "JFK",
+      "departure_datetime": "2025-09-30T08:00:00-07:00",
+      "arrival_datetime": "2025-09-30T16:30:00-04:00",
+      "aircraft_type": "Boeing 737-800",
+      "status": "SCHEDULED",
+      "gate": "B12",
+      "terminal": "1",
+      "fare_main": 299.99,
+      "fare_basic": 199.99,
+      "fare_flex": 449.99,
+      "seats_available": 45
+    },
+    {
+      "flight_id": "BA456_20250930",
+      "flight_number": "BA456",
+      "airline_code": "BA",
+      "origin_iata": "JFK",
+      "destination_iata": "LHR",
+      "departure_datetime": "2025-09-30T22:15:00-04:00",
+      "arrival_datetime": "2025-10-01T09:45:00+01:00",
+      "aircraft_type": "Boeing 777-300ER",
+      "status": "DELAYED",
+      "original_departure": "2025-09-30T21:30:00-04:00",
+      "delay_reason": "Weather conditions",
+      "gate": "A7",
+      "terminal": "8",
+      "fare_main": 899.99,
+      "fare_basic": 599.99,
+      "fare_flex": 1299.99,
+      "seats_available": 12
+    }
+  ],
+
+  "mock_bookings": [
+    {
+      "pnr": "ABC123",
+      "last_name": "SMITH",
+      "contact_phone": "+1-555-0123",
+      "contact_email": "john.smith.mock@example.com",
+      "booking_date": "2025-09-25T14:30:00Z",
+      "status_code": "CONFIRMED",
+      "status_last_updated": "2025-09-25T14:30:00Z",
+      "payment_reference_stub": "PAY_STUB_001",
+      "intent_label": "book_flight",
+      "origin_iata": "LAX",
+      "destination_iata": "JFK",
+      "trip_type": "ROUND_TRIP",
+      "depart_date": "2025-09-30",
+      "return_date": "2025-10-05",
+      "pax_adults": 2,
+      "pax_children": 1,
+      "cabin_class": "ECONOMY",
+      "selected_flight_id": "AA1234_20250930",
+      "return_flight_id": "AA5678_20251005",
+      "total_fare": 899.97,
+      "fare_family": "MAIN",
+      "ssr_list": ["WHEELCHAIR", "VEGAN_MEAL"],
+      "passengers": [
+        {
+          "type": "ADULT",
+          "first_name": "John",
+          "last_name": "Smith",
+          "date_of_birth": "1985-03-15",
+          "seat": "12A"
+        },
+        {
+          "type": "ADULT",
+          "first_name": "Jane",
+          "last_name": "Smith",
+          "date_of_birth": "1987-07-22",
+          "seat": "12B"
+        },
+        {
+          "type": "CHILD",
+          "first_name": "Tommy",
+          "last_name": "Smith",
+          "date_of_birth": "2015-12-10",
+          "seat": "12C"
+        }
+      ]
+    },
+    {
+      "pnr": "XYZ789",
+      "last_name": "JOHNSON",
+      "contact_phone": "+1-555-0456",
+      "contact_email": "mary.johnson.mock@example.com",
+      "booking_date": "2025-09-20T10:15:00Z",
+      "status_code": "CANCELLED",
+      "status_last_updated": "2025-09-28T16:45:00Z",
+      "payment_reference_stub": "PAY_STUB_002",
+      "cancellation_fee": 150.0,
+      "refund_amount": 349.99,
+      "intent_label": "cancel_booking",
+      "origin_iata": "JFK",
+      "destination_iata": "LHR",
+      "trip_type": "ONE_WAY",
+      "depart_date": "2025-10-02",
+      "return_date": null,
+      "pax_adults": 1,
+      "pax_children": 0,
+      "cabin_class": "ECONOMY",
+      "selected_flight_id": "BA456_20251002",
+      "total_fare": 499.99,
+      "fare_family": "BASIC",
+      "ssr_list": [],
+      "passengers": [
+        {
+          "type": "ADULT",
+          "first_name": "Mary",
+          "last_name": "Johnson",
+          "date_of_birth": "1990-05-18",
+          "seat": "23F"
+        }
+      ]
+    }
+  ],
+
+  "special_service_requests": [
+    {
+      "code": "WHEELCHAIR",
+      "name": "Wheelchair Assistance",
+      "category": "MOBILITY",
+      "fee": 0.0
+    },
+    {
+      "code": "VEGAN_MEAL",
+      "name": "Vegan Meal",
+      "category": "MEAL",
+      "fee": 0.0
+    },
+    {
+      "code": "EXTRA_BAGGAGE",
+      "name": "Additional Baggage",
+      "category": "BAGGAGE",
+      "fee": 75.0
+    },
+    {
+      "code": "UNACCOMPANIED_MINOR",
+      "name": "Unaccompanied Minor Service",
+      "category": "SERVICE",
+      "fee": 100.0
+    },
+    {
+      "code": "INFANT_LAP",
+      "name": "Infant on Lap",
+      "category": "PASSENGER",
+      "fee": 50.0
+    },
+    {
+      "code": "SPORTS_EQUIPMENT",
+      "name": "Sports Equipment",
+      "category": "BAGGAGE",
+      "fee": 150.0
+    }
+  ],
+
+  "edge_case_scenarios": {
+    "pnr_not_found": {
+      "pnr": "INVALID123",
+      "error_code": "PNR_NOT_FOUND",
+      "message": "No booking found with the provided PNR and last name combination."
+    },
+
+    "name_mismatch": {
+      "pnr": "ABC123",
+      "provided_last_name": "JONES",
+      "actual_last_name": "SMITH",
+      "error_code": "NAME_MISMATCH",
+      "message": "The last name provided does not match our records for this PNR."
+    },
+
+    "duplicate_booking": {
+      "original_pnr": "ABC123",
+      "duplicate_pnr": "ABC124",
+      "passenger_match": true,
+      "flight_match": true,
+      "warning_code": "DUPLICATE_DETECTED",
+      "message": "Similar booking detected. Please verify this is not a duplicate reservation."
+    },
+
+    "flight_delay_scenario": {
+      "flight_id": "BA456_20250930",
+      "original_departure": "2025-09-30T21:30:00-04:00",
+      "new_departure": "2025-09-30T22:15:00-04:00",
+      "delay_minutes": 45,
+      "reason": "Air traffic control delay",
+      "weather_waiver_eligible": true,
+      "status_last_updated": "2025-09-30T20:45:00-04:00"
+    },
+
+    "payment_failure": {
+      "payment_reference_stub": "PAY_STUB_FAIL_001",
+      "error_code": "PAYMENT_DECLINED",
+      "retry_count": 2,
+      "max_retries": 3,
+      "backoff_seconds": 30,
+      "message": "Payment processing failed. Please try again or use a different payment method."
+    },
+
+    "international_misconnect": {
+      "original_flight": "AA1234_20250930",
+      "connecting_flight": "BA456_20250930",
+      "missed_connection": true,
+      "reprotection_flight": "BA458_20251001",
+      "accommodation_provided": true,
+      "meal_voucher": 50.0,
+      "status": "REPROTECTED"
+    },
+
+    "accessibility_request": {
+      "pnr": "DEF456",
+      "requested_ssr": ["WHEELCHAIR", "GUIDE_DOG"],
+      "wheelchair_available": true,
+      "guide_dog_approved": true,
+      "special_boarding": true,
+      "seat_assignment": "1A",
+      "notes": "Passenger requires aisle seat with extra legroom"
+    },
+
+    "baggage_exceeded": {
+      "pnr": "GHI789",
+      "allowed_weight": 23,
+      "actual_weight": 28,
+      "excess_weight": 5,
+      "excess_fee": 100.0,
+      "payment_required": true,
+      "message": "Baggage exceeds weight limit. Additional fees apply."
+    }
+  },
+
+  "status_codes": [
+    {
+      "code": "CONFIRMED",
+      "description": "Booking confirmed and ticketed"
+    },
+    {
+      "code": "PENDING",
+      "description": "Booking created but payment pending"
+    },
+    {
+      "code": "CANCELLED",
+      "description": "Booking cancelled by passenger or airline"
+    },
+    {
+      "code": "CHECKED_IN",
+      "description": "Passenger has checked in"
+    },
+    {
+      "code": "NO_SHOW",
+      "description": "Passenger did not show for flight"
+    },
+    {
+      "code": "REPROTECTED",
+      "description": "Booking moved to different flight due to disruption"
+    }
+  ],
+
+  "intents": {
+    "primary": [
+      {
+        "intent": "book_flight",
+        "required_entities": [
+          "origin_iata",
+          "destination_iata",
+          "depart_date",
+          "pax_adults",
+          "contact_email"
+        ],
+        "optional_entities": [
+          "return_date",
+          "pax_children",
+          "cabin_class",
+          "ssr_list"
+        ]
+      },
+      {
+        "intent": "check_status",
+        "required_entities": ["pnr", "last_name"]
+      },
+      {
+        "intent": "cancel_booking",
+        "required_entities": ["pnr", "last_name"],
+        "confirmation_required": true
+      },
+      {
+        "intent": "agent_transfer",
+        "required_entities": [],
+        "escalation_reason": "customer_request"
+      }
+    ],
+    "secondary": [
+      {
+        "intent": "modify_booking",
+        "required_entities": ["pnr", "last_name", "modification_type"]
+      },
+      {
+        "intent": "add_baggage",
+        "required_entities": ["pnr", "last_name", "baggage_count"]
+      },
+      {
+        "intent": "seat_request",
+        "required_entities": ["pnr", "last_name", "preferred_seat"]
+      },
+      {
+        "intent": "meal_request",
+        "required_entities": ["pnr", "last_name", "meal_type"]
+      }
+    ]
+  },
+
+  "response_templates": {
+    "booking_confirmation": {
+      "message": "Your flight has been successfully booked! Here are your details:",
+      "recap_fields": [
+        "pnr",
+        "flight_details",
+        "passenger_count",
+        "total_fare",
+        "contact_email"
+      ],
+      "next_actions": [
+        "Add seat selection",
+        "Add special meals",
+        "Add baggage",
+        "Set up flight alerts"
+      ]
+    },
+    "cancellation_confirmation": {
+      "message": "Your booking has been cancelled. Here's your refund information:",
+      "recap_fields": [
+        "pnr",
+        "cancellation_fee",
+        "refund_amount",
+        "processing_time"
+      ],
+      "next_actions": [
+        "Book new flight",
+        "Contact customer service",
+        "Check refund status"
+      ]
+    },
+    "status_update": {
+      "message": "Here's your current booking status:",
+      "recap_fields": ["pnr", "status_code", "flight_details", "gate_info"],
+      "next_actions": [
+        "Check in online",
+        "View boarding pass",
+        "Set flight alerts",
+        "Contact support"
+      ]
+    }
+  },
+
+  "stub_services": {
+    "payment_service": {
+      "endpoint": "https://mock-payment.example.com/process",
+      "success_rate": 0.85,
+      "test_cards": {
+        "success": "4111111111111111",
+        "decline": "4000000000000002",
+        "network_error": "4000000000000119"
+      }
+    },
+    "email_service": {
+      "endpoint": "https://mock-email.example.com/send",
+      "templates": [
+        "booking_confirmation",
+        "cancellation_receipt",
+        "flight_reminder",
+        "check_in_reminder"
+      ]
+    },
+    "sms_service": {
+      "endpoint": "https://mock-sms.example.com/send",
+      "test_numbers": ["+1-555-TEST-001", "+1-555-TEST-002"]
+    }
+  },
+
+  "test_cases": {
+    "pnr_not_found": {
+      "input": {
+        "pnr": "NOTFOUND",
+        "last_name": "SMITH"
+      },
+      "expected_result": "FAIL",
+      "expected_error": "PNR_NOT_FOUND"
+    },
+    "name_mismatch": {
+      "input": {
+        "pnr": "ABC123",
+        "last_name": "WRONG"
+      },
+      "expected_result": "FAIL",
+      "expected_error": "NAME_MISMATCH"
+    },
+    "successful_booking": {
+      "input": {
+        "origin_iata": "LAX",
+        "destination_iata": "JFK",
+        "depart_date": "2025-10-15",
+        "pax_adults": 1,
+        "contact_email": "test@example.com"
+      },
+      "expected_result": "PASS",
+      "expected_pnr_format": "[A-Z]{3}[0-9]{3}"
+    },
+    "cancellation_with_fee": {
+      "input": {
+        "pnr": "ABC123",
+        "last_name": "SMITH",
+        "hours_before_departure": 48
+      },
+      "expected_result": "PASS",
+      "expected_fee_range": [100, 300]
+    }
+  }
+}
